@@ -4,7 +4,7 @@ from pydantic_settings import BaseSettings
 
 
 class Settings(BaseSettings):
-    model_config = {"env_prefix": "DOCUMIND_", "env_file": ".env"}
+    model_config = {"env_prefix": "DOCUMIND_", "env_file": ".env", "extra": "ignore"}
 
     # App
     app_name: str = "DocuMind"

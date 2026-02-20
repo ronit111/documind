@@ -2,7 +2,7 @@
 name = "documind-backend"
 version = "1.0.0"
 description = "AI Knowledge Base Assistant - Backend API"
-requires-python = ">=3.11"
+requires-python = ">=3.11,<3.14"
 
 [tool.pytest.ini_options]
 asyncio_mode = "auto"

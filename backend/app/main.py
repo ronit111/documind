@@ -2,12 +2,16 @@
 
 from contextlib import asynccontextmanager
 
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
 
 from app.config import settings
-from app.core.logging import setup_logging
+from app.core.logging import get_logger, setup_logging
 from app.models.database import init_db
+from app.models.schemas import ErrorResponse
+
+logger = get_logger(__name__)
 
 
 @asynccontextmanager
@@ -15,7 +19,17 @@ async def lifespan(app: FastAPI):
     setup_logging()
     await init_db()
     settings.upload_dir.mkdir(parents=True, exist_ok=True)
-    # Routes are imported and included below — services initialize lazily
+
+    # Load sample documents if configured
+    if settings.load_sample_docs and settings.sample_docs_dir.exists():
+        try:
+            from app.services.document_processor import load_sample_documents
+
+            await load_sample_documents()
+            logger.info("sample_docs_loaded")
+        except Exception as e:
+            logger.warning("sample_docs_load_failed", error=str(e))
+
     yield
 
 
@@ -33,6 +47,14 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+
+@app.exception_handler(Exception)
+async def generic_exception_handler(request: Request, exc: Exception):
+    logger.error("unhandled_exception", path=request.url.path, error=str(exc))
+    body = ErrorResponse(detail="An unexpected error occurred", status_code=500)
+    return JSONResponse(status_code=500, content=body.model_dump())
+
 
 # Import and include routers
 from app.api.routes import chat, documents, health  # noqa: E402
