@@ -230,6 +230,8 @@ def _split_long_paragraph(text: str, char_limit: int, char_overlap: int) -> list
     while start < len(text):
         end = min(start + char_limit, len(text))
         result.append(text[start:end])
+        if end == len(text):
+            break
         start = end - char_overlap if char_overlap > 0 else end
     return result
 
