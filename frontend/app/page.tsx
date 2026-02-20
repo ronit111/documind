@@ -38,7 +38,7 @@ export default function DashboardPage() {
     <div className="space-y-8">
       {/* Page header */}
       <div>
-        <h1 className="text-2xl font-bold tracking-tight">Dashboard</h1>
+        <h1 className="font-serif text-3xl tracking-tight">Dashboard</h1>
         <p className="mt-1 text-sm text-muted-foreground">
           Overview of your knowledge base
         </p>
@@ -125,10 +125,10 @@ export default function DashboardPage() {
       {/* Quick actions */}
       <div className="grid gap-4 sm:grid-cols-2">
         <Link href="/documents">
-          <Card className="cursor-pointer transition-colors hover:border-indigo-500/40">
+          <Card className="cursor-pointer transition-colors hover:border-primary/30">
             <CardHeader>
               <CardTitle className="flex items-center gap-2 text-base">
-                <Upload className="size-4 text-indigo-400" />
+                <Upload className="size-4 text-primary" />
                 Upload Documents
               </CardTitle>
               <CardDescription>
@@ -136,17 +136,17 @@ export default function DashboardPage() {
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <span className="inline-flex items-center gap-1 text-sm text-indigo-400">
+              <span className="inline-flex items-center gap-1 text-sm text-primary">
                 Go to Documents <ArrowRight className="size-3.5" />
               </span>
             </CardContent>
           </Card>
         </Link>
         <Link href="/chat">
-          <Card className="cursor-pointer transition-colors hover:border-indigo-500/40">
+          <Card className="cursor-pointer transition-colors hover:border-primary/30">
             <CardHeader>
               <CardTitle className="flex items-center gap-2 text-base">
-                <MessageSquare className="size-4 text-indigo-400" />
+                <MessageSquare className="size-4 text-primary" />
                 Start Chatting
               </CardTitle>
               <CardDescription>
@@ -154,7 +154,7 @@ export default function DashboardPage() {
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <span className="inline-flex items-center gap-1 text-sm text-indigo-400">
+              <span className="inline-flex items-center gap-1 text-sm text-primary">
                 Go to Chat <ArrowRight className="size-3.5" />
               </span>
             </CardContent>
@@ -166,7 +166,9 @@ export default function DashboardPage() {
       {health && health.documents_count === 0 && (
         <Card>
           <CardHeader>
-            <CardTitle>Getting Started</CardTitle>
+            <CardTitle className="font-serif text-xl">
+              Getting Started
+            </CardTitle>
             <CardDescription>
               Set up your knowledge base in three steps
             </CardDescription>
@@ -174,7 +176,7 @@ export default function DashboardPage() {
           <CardContent>
             <ol className="space-y-4">
               <li className="flex items-start gap-3">
-                <span className="flex size-7 shrink-0 items-center justify-center rounded-full bg-indigo-500/15 text-xs font-bold text-indigo-400">
+                <span className="flex size-7 shrink-0 items-center justify-center rounded-full bg-primary/10 text-xs font-bold text-primary">
                   1
                 </span>
                 <div>
@@ -185,7 +187,7 @@ export default function DashboardPage() {
                 </div>
               </li>
               <li className="flex items-start gap-3">
-                <span className="flex size-7 shrink-0 items-center justify-center rounded-full bg-indigo-500/15 text-xs font-bold text-indigo-400">
+                <span className="flex size-7 shrink-0 items-center justify-center rounded-full bg-primary/10 text-xs font-bold text-primary">
                   2
                 </span>
                 <div>
@@ -198,7 +200,7 @@ export default function DashboardPage() {
                 </div>
               </li>
               <li className="flex items-start gap-3">
-                <span className="flex size-7 shrink-0 items-center justify-center rounded-full bg-indigo-500/15 text-xs font-bold text-indigo-400">
+                <span className="flex size-7 shrink-0 items-center justify-center rounded-full bg-primary/10 text-xs font-bold text-primary">
                   3
                 </span>
                 <div>

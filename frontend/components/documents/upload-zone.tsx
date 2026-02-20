@@ -136,14 +136,14 @@ export function UploadZone({ onUploadComplete }: UploadZoneProps) {
         className={cn(
           "flex cursor-pointer flex-col items-center justify-center gap-3 rounded-xl border-2 border-dashed p-10 transition-colors",
           dragOver
-            ? "border-indigo-400 bg-indigo-500/10"
+            ? "border-primary bg-primary/5"
             : "border-border hover:border-muted-foreground/50"
         )}
       >
         <Upload
           className={cn(
             "size-8",
-            dragOver ? "text-indigo-400" : "text-muted-foreground"
+            dragOver ? "text-primary" : "text-muted-foreground"
           )}
         />
         <div className="text-center">
@@ -183,7 +183,7 @@ export function UploadZone({ onUploadComplete }: UploadZoneProps) {
                 {u.status === "uploading" && (
                   <div className="mt-1.5 h-1.5 w-full rounded-full bg-accent">
                     <div
-                      className="h-full rounded-full bg-indigo-500 transition-all duration-300"
+                      className="h-full rounded-full bg-primary transition-all duration-300"
                       style={{ width: `${u.progress}%` }}
                     />
                   </div>

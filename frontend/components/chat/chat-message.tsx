@@ -21,11 +21,11 @@ export function ChatMessage({ message }: ChatMessageProps) {
       <div
         className={cn(
           "flex size-8 shrink-0 items-center justify-center rounded-full",
-          isUser ? "bg-indigo-500" : "bg-accent"
+          isUser ? "bg-primary" : "bg-accent"
         )}
       >
         {isUser ? (
-          <User className="size-4 text-white" />
+          <User className="size-4 text-primary-foreground" />
         ) : (
           <Bot className="size-4 text-foreground" />
         )}
@@ -42,7 +42,7 @@ export function ChatMessage({ message }: ChatMessageProps) {
           className={cn(
             "rounded-2xl px-4 py-3",
             isUser
-              ? "bg-indigo-500 text-white"
+              ? "bg-primary text-primary-foreground"
               : "bg-card border border-border"
           )}
         >

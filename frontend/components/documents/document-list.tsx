@@ -78,8 +78,8 @@ export function DocumentList({
         {documents.map((doc) => (
           <Card key={doc.id}>
             <CardContent className="flex items-center gap-4 py-4">
-              <div className="flex size-10 items-center justify-center rounded-lg bg-indigo-500/10">
-                <FileText className="size-5 text-indigo-400" />
+              <div className="flex size-10 items-center justify-center rounded-lg bg-primary/10">
+                <FileText className="size-5 text-primary" />
               </div>
               <div className="flex-1 min-w-0">
                 <p className="truncate text-sm font-medium">{doc.filename}</p>

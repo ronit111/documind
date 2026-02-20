@@ -32,7 +32,7 @@ export default function DocumentsPage() {
     <div className="space-y-8">
       {/* Page header */}
       <div>
-        <h1 className="text-2xl font-bold tracking-tight">Documents</h1>
+        <h1 className="font-serif text-3xl tracking-tight">Documents</h1>
         <p className="mt-1 text-sm text-muted-foreground">
           Manage your knowledge base documents
         </p>
@@ -41,11 +41,11 @@ export default function DocumentsPage() {
       {/* Upload zone - always visible, more prominent when empty */}
       {isEmpty ? (
         <div className="flex flex-col items-center gap-6 rounded-xl border border-dashed border-border p-12 text-center">
-          <div className="flex size-14 items-center justify-center rounded-full bg-indigo-500/10">
-            <Upload className="size-7 text-indigo-400" />
+          <div className="flex size-14 items-center justify-center rounded-full bg-primary/10">
+            <Upload className="size-7 text-primary" />
           </div>
           <div>
-            <h2 className="text-lg font-semibold">No documents yet</h2>
+            <h2 className="font-serif text-xl">No documents yet</h2>
             <p className="mt-1 text-sm text-muted-foreground">
               Upload documents to build your knowledge base. Supported formats:
               PDF, DOCX, TXT, Markdown.

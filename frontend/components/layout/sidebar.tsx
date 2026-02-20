@@ -4,7 +4,6 @@ import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
-  Brain,
   LayoutDashboard,
   MessageSquare,
   FileText,
@@ -26,7 +25,7 @@ export function Sidebar() {
 
   return (
     <>
-      {/* Mobile hamburger */}
+      {/* Mobile header */}
       <div className="fixed top-0 left-0 z-50 flex h-14 w-full items-center border-b border-border bg-background px-4 md:hidden">
         <Button
           variant="ghost"
@@ -36,9 +35,10 @@ export function Sidebar() {
         >
           {mobileOpen ? <X className="size-5" /> : <Menu className="size-5" />}
         </Button>
-        <div className="ml-3 flex items-center gap-2">
-          <Brain className="size-5 text-indigo-400" />
-          <span className="text-sm font-semibold">DocuMind</span>
+        <div className="ml-3">
+          <span className="font-serif italic text-lg tracking-tight">
+            DocuMind
+          </span>
         </div>
       </div>
 
@@ -53,18 +53,19 @@ export function Sidebar() {
       {/* Sidebar */}
       <aside
         className={cn(
-          "fixed top-0 left-0 z-40 flex h-full w-60 flex-col border-r border-border bg-background transition-transform duration-200 md:translate-x-0",
+          "fixed top-0 left-0 z-40 flex h-full w-60 flex-col border-r border-border bg-sidebar transition-transform duration-200 md:translate-x-0",
           mobileOpen ? "translate-x-0" : "-translate-x-full"
         )}
       >
-        {/* Branding */}
-        <div className="flex h-14 items-center gap-2.5 border-b border-border px-5">
-          <Brain className="size-6 text-indigo-400" />
-          <span className="text-lg font-bold tracking-tight">DocuMind</span>
+        {/* Brand */}
+        <div className="flex h-14 items-center border-b border-border px-5">
+          <span className="font-serif italic text-xl tracking-tight">
+            DocuMind
+          </span>
         </div>
 
         {/* Navigation */}
-        <nav className="flex flex-1 flex-col gap-1 p-3">
+        <nav className="flex flex-1 flex-col gap-0.5 p-3">
           {navItems.map((item) => {
             const isActive = pathname === item.href;
             return (
@@ -75,7 +76,7 @@ export function Sidebar() {
                 className={cn(
                   "flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-colors",
                   isActive
-                    ? "bg-indigo-500/15 text-indigo-400"
+                    ? "bg-primary/10 text-primary"
                     : "text-muted-foreground hover:bg-accent hover:text-foreground"
                 )}
               >
@@ -88,9 +89,7 @@ export function Sidebar() {
 
         {/* Footer */}
         <div className="border-t border-border px-5 py-4">
-          <p className="text-xs text-muted-foreground">
-            AI Knowledge Base
-          </p>
+          <p className="text-xs text-muted-foreground">AI Knowledge Base</p>
         </div>
       </aside>
     </>

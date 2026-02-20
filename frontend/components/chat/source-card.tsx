@@ -23,13 +23,13 @@ export function SourceCard({ source }: SourceCardProps) {
       onClick={() => setExpanded(!expanded)}
     >
       <div className="flex items-start gap-3 p-3">
-        <FileText className="mt-0.5 size-4 shrink-0 text-indigo-400" />
+        <FileText className="mt-0.5 size-4 shrink-0 text-primary" />
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2">
             <p className="truncate text-xs font-medium">
               {source.document_name}
             </p>
-            <span className="shrink-0 rounded-full bg-indigo-500/10 px-2 py-0.5 text-[10px] font-medium text-indigo-400">
+            <span className="shrink-0 rounded-full bg-primary/10 px-2 py-0.5 text-[10px] font-medium text-primary">
               {score}% match
             </span>
           </div>

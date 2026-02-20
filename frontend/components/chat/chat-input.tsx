@@ -54,7 +54,7 @@ export function ChatInput({ onSend, disabled }: ChatInputProps) {
         onClick={handleSend}
         disabled={disabled}
         aria-label="Send message"
-        className="shrink-0 bg-indigo-500 hover:bg-indigo-600"
+        className="shrink-0 bg-primary text-primary-foreground hover:bg-primary/90"
       >
         <Send className="size-4" />
       </Button>

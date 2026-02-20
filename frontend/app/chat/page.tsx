@@ -125,17 +125,19 @@ export default function ChatPage() {
   if (hasDocuments === false) {
     return (
       <div className="flex h-[calc(100vh-7rem)] flex-col items-center justify-center gap-4 text-center md:h-[calc(100vh-3rem)]">
-        <div className="flex size-14 items-center justify-center rounded-full bg-indigo-500/10">
-          <Upload className="size-7 text-indigo-400" />
+        <div className="flex size-14 items-center justify-center rounded-full bg-primary/10">
+          <Upload className="size-7 text-primary" />
         </div>
         <div>
-          <h2 className="text-lg font-semibold">Upload documents to get started</h2>
+          <h2 className="font-serif text-xl">
+            Upload documents to get started
+          </h2>
           <p className="mt-1 text-sm text-muted-foreground">
             Add documents to your knowledge base, then come back to chat.
           </p>
         </div>
         <Link href="/documents">
-          <Button className="bg-indigo-500 hover:bg-indigo-600">
+          <Button className="bg-primary text-primary-foreground hover:bg-primary/90">
             Go to Documents
           </Button>
         </Link>
@@ -152,11 +154,11 @@ export default function ChatPage() {
             {messages.length === 0 ? (
               /* Empty state: has docs, no messages */
               <div className="flex h-full flex-col items-center justify-center gap-6 pt-24 text-center">
-                <div className="flex size-14 items-center justify-center rounded-full bg-indigo-500/10">
-                  <MessageSquare className="size-7 text-indigo-400" />
+                <div className="flex size-14 items-center justify-center rounded-full bg-primary/10">
+                  <MessageSquare className="size-7 text-primary" />
                 </div>
                 <div>
-                  <h2 className="text-lg font-semibold">
+                  <h2 className="font-serif text-xl">
                     Ask anything about your documents
                   </h2>
                   <p className="mt-1 text-sm text-muted-foreground">
@@ -168,9 +170,9 @@ export default function ChatPage() {
                     <button
                       key={s}
                       onClick={() => handleSend(s)}
-                      className="flex items-start gap-2 rounded-lg border border-border bg-card p-3 text-left text-sm transition-colors hover:border-indigo-500/40 hover:bg-accent"
+                      className="flex items-start gap-2 rounded-lg border border-border bg-card p-3 text-left text-sm transition-colors hover:border-primary/30 hover:bg-accent"
                     >
-                      <Sparkles className="mt-0.5 size-3.5 shrink-0 text-indigo-400" />
+                      <Sparkles className="mt-0.5 size-3.5 shrink-0 text-primary" />
                       <span className="text-muted-foreground">{s}</span>
                     </button>
                   ))}
