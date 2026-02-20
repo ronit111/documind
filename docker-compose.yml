@@ -1,0 +1,36 @@
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    ports:
+      - "8000:8000"
+    environment:
+      - DOCUMIND_LLM_PROVIDER=${DOCUMIND_LLM_PROVIDER:-groq}
+      - DOCUMIND_GROQ_API_KEY=${DOCUMIND_GROQ_API_KEY}
+      - DOCUMIND_OPENAI_API_KEY=${DOCUMIND_OPENAI_API_KEY:-}
+      - DOCUMIND_CORS_ORIGINS=["http://localhost:3000"]
+      - DOCUMIND_LOAD_SAMPLE_DOCS=true
+      - DOCUMIND_DEBUG=false
+    volumes:
+      - backend-data:/app/data
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:8000/api
+    depends_on:
+      backend:
+        condition: service_healthy
+
+volumes:
+  backend-data:
